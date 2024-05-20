@@ -23,6 +23,12 @@
     padding: 4px;
     color: #00aaff;
     background-color: white;
+    transition: color 0.5s, background-color 0.5s;
+}
+
+.animated-nav-menu a:hover {
+    color: white;
+    background-color: #00aaff;
 }
 
 /* Task 3: Button Press Animation */
