@@ -6,6 +6,7 @@
 .hover-highlight-card:hover {
     background-color: purple;
     transition-duration: 500ms;
+    box-shadow: 10px 5px 5px red;
 }
 
 /* Task 2: Animated Navigation Menu */
