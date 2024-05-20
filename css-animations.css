@@ -72,8 +72,16 @@
     justify-content: space-around;
     flex-wrap: wrap;
 }
+
 .fading-gallery img {
     width: 100px;
     height: 100px;
     object-fit: cover;
+    transition: transform 0.3s, opacity 0.3s, box-shadow 0.3s;
+}
+
+.fading-gallery img:hover {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
