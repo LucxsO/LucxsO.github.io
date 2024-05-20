@@ -38,7 +38,13 @@
     background-color: #00aaff;
     color: white;
     cursor: pointer;
+    transition: transform 0.1s;
 }
+
+.button-press-animation button:active {
+    transform: translateY(4px);
+}
+
 
 /* Task 4: Simple Loading Spinner */
 .simple-loading-spinner .spinner {
