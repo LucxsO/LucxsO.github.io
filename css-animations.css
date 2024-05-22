@@ -75,21 +75,19 @@ body {
 
 /* fading gallery */
 .fading-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    position: relative; /* Ensure images are positioned relative to the parent container */
 }
 
 .fading-gallery img {
     width: 100px;
     height: 100px;
     object-fit: cover;
-    margin: 10px; /* Adjust margin as needed */
+    position: absolute; /* Position images absolutely within the container */
     transition: transform 0.3s, opacity 0.3s, box-shadow 0.3s;
-} 
+}
 
 .fading-gallery img:hover {
     opacity: 1;
     transform: translateY(-10px) scale(1.1);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: none;
 }
