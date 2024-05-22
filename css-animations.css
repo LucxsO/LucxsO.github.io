@@ -4,7 +4,9 @@ body {
 
 .hover-highlight-card {
     padding: 20px;
-    border: 6px solid transparent; /* Set border color to transparent initially */
+    border: 6px solid transparent;
+    opacity: 1; /* Set initial opacity to fully visible */
+    transition: opacity 0.5s; /* Add transition for opacity */
 }
 
 .hover-highlight-card:hover {
@@ -13,7 +15,8 @@ body {
     box-shadow: none;
     width: 14%;
     height: 4%;
-    border-color: white; /* Set border color to white on hover */
+    border-color: white;
+    opacity: 0; /* Set opacity to 0 on hover */
 }
 
 /* Task 2: Animated Navigation Menu */
