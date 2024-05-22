@@ -5,8 +5,8 @@ body {
 .hover-highlight-card {
     padding: 20px;
     border: 6px solid transparent;
-    opacity: 1; /* Set initial opacity to fully visible */
-    transition: opacity 0.5s; /* Add transition for opacity */
+    opacity: 1; 
+    transition: opacity 0.5s; 
 }
 
 .hover-highlight-card:hover {
@@ -16,83 +16,31 @@ body {
     width: 14%;
     height: 4%;
     border-color: white;
+    opacity: 0; 
+}
+
+.hover-highlight-card-wrapper {
+    display: inline-block; 
+    position: relative; 
+}
+
+.hover-highlight-card-wrapper::after {
+    content: ""; 
+    position: absolute; /* Position it absolutely */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Cover the entire area of the wrapper */
+    height: 100%; /* Cover the entire area of the wrapper */
+    opacity: 0; /* Initially make it transparent */
+    background-color: darkgray; /* Background color same as on hover */
+    transition: opacity 0.5s; /* Add transition for opacity */
+    z-index: -1; /* Behind the card */
+}
+
+.hover-highlight-card-wrapper:hover::after {
+    opacity: 1; /* Make the pseudo-element visible on hover */
+}
+
+.hover-highlight-card-wrapper:hover .hover-highlight-card {
     opacity: 0; /* Set opacity to 0 on hover */
-}
-
-/* Task 2: Animated Navigation Menu */
-.animated-nav-menu ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 10px;
-}
-
-.animated-nav-menu a {
-    text-decoration: none;
-    border-radius: 10%;
-    padding: 4px;
-    color: #00aaff;
-    background-color: white;
-    transition: color 0.5s, background-color 0.5s;
-}
-
-.animated-nav-menu a:hover {
-    color: white;
-    background-color: #00aaff;
-}
-
-/* Task 3: Button Press Animation */
-.button-press-animation button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #00aaff;
-    color: white;
-    cursor: pointer;
-    transition: transform 0.1s;
-}
-
-.button-press-animation button:active {
-    transform: translateY(4px);
-}
-
-
-/* Task 4: Simple Loading Spinner */
-.simple-loading-spinner .spinner {
-    border: 4px solid #f3f3f3;
-    border-top: 4px solid #3498db;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-
-/* fading gallery */
-.fading-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.fading-gallery img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    margin: 10px; /* Adjust margin as needed */
-    transition: transform 0.3s, opacity 0.3s, box-shadow 0.3s;
-} 
-
-.fading-gallery img:hover {
-    opacity: 1;
-    transform: translateY(-10px) scale(1.1);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
