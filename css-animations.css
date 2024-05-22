@@ -4,7 +4,7 @@ body {
 
 .hover-highlight-card {
     padding: 20px;
-    border: 6px solid white;
+    border: 6px solid transparent; /* Set border color to transparent initially */
 }
 
 .hover-highlight-card:hover {
@@ -12,7 +12,8 @@ body {
     transition-duration: 500ms;
     box-shadow: none;
     width: 14%;
-    height: 5%
+    height: 4%;
+    border-color: white; /* Set border color to white on hover */
 }
 
 /* Task 2: Animated Navigation Menu */
@@ -72,17 +73,18 @@ body {
 }
 
 
-/* Task 5: Fading Gallery */
+/* fading gallery */
 .fading-gallery {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .fading-gallery img {
     width: 100px;
     height: 100px;
     object-fit: cover;
+    margin: 10px; /* Adjust margin as needed */
     transition: transform 0.3s, opacity 0.3s, box-shadow 0.3s;
 } 
 
