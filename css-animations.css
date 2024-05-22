@@ -5,8 +5,8 @@ body {
 .hover-highlight-card {
     padding: 20px;
     border: 6px solid transparent;
-    opacity: 1; /* Set initial opacity to fully visible */
-    transition: opacity 0.5s; /* Add transition for opacity */
+    opacity: 1; 
+    transition: opacity 0.5s; 
 }
 
 .hover-highlight-card:hover {
@@ -16,21 +16,29 @@ body {
     width: 14%;
     height: 4%;
     border-color: white;
-    opacity: 0; /* Set opacity to 0 on hover */
+    opacity: 0; 
 }
 
 /* Task 2: Animated Navigation Menu */
+.animated-nav-menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: black; /* Adding a background bar */
+    z-index: 9999; /* Ensuring it's above everything else */
+}
+
 .animated-nav-menu ul {
     list-style: none;
-    padding: 0;
+    padding: 10px; /* Adjust padding as needed */
     display: flex;
-    gap: 10px;
+    gap: 20px; /* Doubling the gap */
 }
 
 .animated-nav-menu a {
     text-decoration: none;
     border-radius: 10%;
-    padding: 4px;
+    padding: 8px; /* Doubling the padding */
     color: #00aaff;
     background-color: white;
     transition: color 0.5s, background-color 0.5s;
@@ -40,6 +48,7 @@ body {
     color: white;
     background-color: #00aaff;
 }
+
 
 /* Task 3: Button Press Animation */
 .button-press-animation button {
