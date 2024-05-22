@@ -54,6 +54,28 @@ body {
     margin-top: 70px; 
 }
 
+/* Move the highlight card and its contents down */
+.hover-highlight-card {
+    margin-top: 50px; /* Adjust the value as needed */
+}
+
+.hover-highlight-card {
+    padding: 20px;
+    border: 6px solid transparent;
+    opacity: 1; 
+    transition: opacity 0.5s; 
+}
+
+.hover-highlight-card:hover {
+    background-color: darkgray;
+    transition-duration: 500ms;
+    box-shadow: none;
+    width: 14%;
+    height: 4%;
+    border-color: white;
+    opacity: 0; 
+}
+
 /* Task 3: Button Press Animation */
 .button-press-animation button {
     padding: 10px 20px;
@@ -67,6 +89,49 @@ body {
 .button-press-animation button:active {
     transform: translateY(4px);
 }
+
+
+/* Task 4: Simple Loading Spinner */
+.simple-loading-spinner .spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* fading gallery */
+.fading-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.fading-gallery img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin: 10px; /* Adjust margin as needed */
+    transition: transform 0.3s, opacity 0.3s, box-shadow 0.3s;
+} 
+
+.fading-gallery img:hover {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 
 
 /* Task 4: Simple Loading Spinner */
