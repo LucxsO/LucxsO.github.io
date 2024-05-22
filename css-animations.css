@@ -2,7 +2,6 @@ body {
     background-color: black;
 }
 
-/* CSS styles for hover highlight card */
 .hover-highlight-card {
     padding: 20px;
     border: 6px solid transparent;
@@ -19,26 +18,6 @@ body {
     border-color: white;
     opacity: 0; /* Set opacity to 0 on hover */
 }
-
-/* JavaScript code */
-<script>
-    // Get the highlight card element
-    const highlightCard = document.querySelector('.hover-highlight-card');
-
-    // Function to add the fade-out class when scrolling off the highlight card
-    function fadeOutOnScrollOff() {
-        // Check if the mouse is currently over the highlight card
-        const isHovered = highlightCard.matches(':hover');
-        
-        // If not hovered, add the fade-out class
-        if (!isHovered) {
-            highlightCard.classList.add('fade-out');
-        }
-    }
-
-    // Add event listener for scroll event
-    window.addEventListener('scroll', fadeOutOnScrollOff);
-</script>
 
 /* Task 2: Animated Navigation Menu */
 .animated-nav-menu ul {
