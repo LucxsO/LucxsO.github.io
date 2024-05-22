@@ -1,12 +1,12 @@
-/* Task 1: Hover Highlight Card */
 .hover-highlight-card {
     padding: 20px;
+    border: 8px solid white;
 }
 
 .hover-highlight-card:hover {
     background-color: darkgray;
     transition-duration: 500ms;
-    box-shadow: 10px 5px 5px black;
+    box-shadow: none;
     width: 25%;
 }
 
