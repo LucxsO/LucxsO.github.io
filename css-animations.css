@@ -1,3 +1,7 @@
+body {
+    background-color: black;
+}
+
 .hover-highlight-card {
     padding: 20px;
     border: 8px solid white;
