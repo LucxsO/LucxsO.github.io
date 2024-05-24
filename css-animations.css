@@ -77,7 +77,7 @@ body {
     position: absolute; /* Position images absolutely within the container */
     margin: 10px; /* Adjust margin as needed */
     transition: transform 0.3s, opacity 0.3s, box-shadow 0.3s;
-}
+
 } 
 
 .fading-gallery img:hover {
