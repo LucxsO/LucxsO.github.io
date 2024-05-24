@@ -22,26 +22,26 @@ body {
 }
 
 
-/* Task 2: Animated Navigation Menu */
+
 .animated-nav-menu {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: darkgrey; /* Adding a background bar */
-    z-index: 9999; /* Ensuring it's above everything else */
+    background-color: darkgrey; 
+    z-index: 9999; 
 }
 
 .animated-nav-menu ul {
     list-style: none;
-    padding: 10px; /* Adjust padding as needed */
+    padding: 10px; 
     display: flex;
-    gap: 20px; /* Doubling the gap */
+    gap: 20px; 
 }
 
 .animated-nav-menu a {
     text-decoration: none;
     border-radius: 10%;
-    padding: 8px; /* Doubling the padding */
+    padding: 8px; 
     color: #00aaff;
     background-color: white;
     transition: color 0.5s, background-color 0.5s;
@@ -53,7 +53,7 @@ body {
 }
 
 
-/* Task 3: Button Press Animation */
+
 .button-press-animation button {
     padding: 10px 20px;
     border: none;
@@ -68,7 +68,7 @@ body {
 }
 
 
-/* Task 4: Simple Loading Spinner */
+
 .simple-loading-spinner .spinner {
     border: 4px solid #f3f3f3;
     border-top: 4px solid #3498db;
@@ -88,7 +88,7 @@ body {
 }
 
 
-/* fading gallery */
+
 .fading-gallery {
     display: flex;
     flex-wrap: wrap;
@@ -99,7 +99,7 @@ body {
     width: 100px;
     height: 100px;
     object-fit: cover;
-    margin: 10px; /* Adjust margin as needed */
+    margin: 10px; 
     transition: transform 0.3s, opacity 0.3s, box-shadow 0.3s;
 } 
 
