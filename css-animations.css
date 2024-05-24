@@ -1,88 +1,71 @@
 body {
     background-color: black;
+    margin-top: 50px; /* Push down content to make space for the navigation bar */
 }
-.hover-highlight-card {
-    padding: 20px;
-    border: 6px solid transparent; /* Set border color to transparent initially */
+
+/* New background bar at the top */
+.background-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; /* Adjust height as needed */
+    background-color: white;
+    z-index: 999; /* Ensure it's above other content */
 }
-.hover-highlight-card:hover {
-    background-color: darkgray;
-    transition-duration: 500ms;
-    box-shadow: none;
-    width: 14%;
-    height: 4%;
-    border-color: white; /* Set border color to white on hover */
+
+/* Animated Navigation Menu */
+.animated-nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px; /* Adjust height as needed */
 }
-/* Task 2: Animated Navigation Menu */
+
 .animated-nav-menu ul {
     list-style: none;
     padding: 0;
     display: flex;
-    gap: 10px;
+    gap: 20px; /* Increase gap between menu items */
 }
+
 .animated-nav-menu a {
     text-decoration: none;
-    border-radius: 10%;
-    padding: 4px;
+    border-radius: 50%;
+    padding: 10px; /* Increase padding */
     color: #00aaff;
     background-color: white;
     transition: color 0.5s, background-color 0.5s;
 }
+
 .animated-nav-menu a:hover {
     color: white;
     background-color: #00aaff;
 }
-/* Task 3: Button Press Animation */
+
+/* Adjustments for other UI elements */
+
+.hover-highlight-card {
+    padding: 30px; /* Increase padding */
+    width: 16%; /* Increase width */
+    height: 6%; /* Increase height */
+}
+
 .button-press-animation button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #00aaff;
-    color: white;
-    cursor: pointer;
-    transition: transform 0.1s;
+    padding: 15px 30px; /* Increase padding */
 }
-.button-press-animation button:active {
-    transform: translateY(4px);
-}
-/* Task 4: Simple Loading Spinner */
+
 .simple-loading-spinner .spinner {
-    border: 4px solid #f3f3f3;
-    border-top: 4px solid #3498db;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-}
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+    width: 60px; /* Increase spinner size */
+    height: 60px; /* Increase spinner size */
 }
 
 /* fading gallery */
 .fading-gallery {
-    position: relative; /* Ensure images are positioned relative to the parent container */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.fading-gallery img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    position: absolute; /* Position images absolutely within the container */
-    margin: 10px; /* Adjust margin as needed */
-    transition: transform 0.3s, opacity 0.3s, box-shadow 0.3s;
-
-} 
-
-.fading-gallery img:hover {
-    opacity: 1;
-    transform: translateY(-10px) scale(1.1);
-    box-shadow: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 100px; /* Push down the gallery to make space for the navigation bar */
 }
