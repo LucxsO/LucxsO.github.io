@@ -96,10 +96,10 @@ body {
 }
 
 .fading-gallery img {
-    width: 500px;
+    width: 550px;
     height: 500px;
     object-fit: cover;
-    margin: 5px; 
+    margin: 15px; 
     transition: transform 0.3s, opacity 0.3s, box-shadow 0.3s;
 } 
 
