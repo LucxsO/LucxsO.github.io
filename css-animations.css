@@ -40,6 +40,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 120px; /* Add this line to create space between the header and gallery */
 }
 
 .fading-gallery img {
