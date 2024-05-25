@@ -2,12 +2,17 @@ body {
     background-color: black;
 }
 
-.animated-nav-menu {
+.fixed-header {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: darkgrey; 
     z-index: 9999; 
+    background-color: gray;
+}
+
+.animated-nav-menu {
+    width: 100%;
+    background-color: darkgrey; 
 }
 
 .animated-nav-menu ul {
@@ -29,6 +34,10 @@ body {
 .animated-nav-menu a:hover {
     color: white;
     background-color: #00aaff;
+}
+
+.button-press-animation {
+    margin-top: 150px; /* Add margin to avoid overlap with fixed header */
 }
 
 .button-press-animation button {
