@@ -96,8 +96,8 @@ body {
 }
 
 .fading-gallery img {
-    width: 550px;
-    height: 500px;
+    width: 275px;
+    height: 250px;
     object-fit: cover;
     margin: 15px; 
     transition: transform 0.3s, opacity 0.3s, box-shadow 0.3s;
