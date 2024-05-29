@@ -69,6 +69,12 @@ body {
     margin-right: 15px;
 }
 
+.fading-gallery .HondaNSX-img {
+    width: 390px;
+    height: 250px;
+    margin-right: 15px;
+}
+
 .overlay {
     position: fixed;
     top: 0;
