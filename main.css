@@ -35,7 +35,7 @@ body {
 
 .animated-nav-menu {
   width: 100%;
-  background: linear-gradient(to right, white, black);
+  background-color: black;
 }
 
 .animated-nav-menu ul {
@@ -96,14 +96,19 @@ body {
   left: 0;
 }
 
+.first-image {
+  z-index: 1;
+}
+
 .second-image {
   opacity: 0;
+  z-index: 2;
 }
 
 .image-container:hover .second-image {
   opacity: 1;
 }
 
-.image-container:hover .hover-image {
+.image-container:hover .first-image {
   opacity: 0;
 }
