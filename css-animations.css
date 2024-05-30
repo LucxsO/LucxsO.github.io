@@ -1,5 +1,7 @@
 body {
     background-color: black;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
 .fixed-header {
@@ -9,37 +11,58 @@ body {
     z-index: 9999;
     background-color: black;
     color: white;
-    text-align: center;
 }
 
-.fixed-header h1, .fixed-header h2 {
-    margin: 0;
+.header-content {
+    text-align: left;
     padding: 10px;
+}
+
+.header-content h1 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.header-content h2 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 .animated-nav-menu {
     width: 100%;
     background: linear-gradient(to right, white, black);
+    padding: 10px 0;
 }
 
 .animated-nav-menu ul {
     list-style: none;
-    padding: 10px;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.animated-nav-menu li {
+    margin: 0 10px;
 }
 
 .animated-nav-menu a {
     text-decoration: none;
-    border-radius: 10%;
-    padding: 8px;
     color: black;
     background-color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
     transition: color 0.5s, background-color 0.5s;
 }
 
-.animated-nav-menu a:hover, .animated-nav-menu a.active {
+.animated-nav-menu a:hover {
+    color: white;
+    background-color: black;
+}
+
+.animated-nav-menu a.active {
     color: white;
     background-color: black;
 }
@@ -48,7 +71,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 140px;
+    margin-top: 120px;
 }
 
 .fading-gallery img {

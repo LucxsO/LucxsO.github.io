@@ -3,6 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const overlay = document.getElementById('overlay');
     const closeBtn = document.getElementById('close-btn');
 
+    // Highlight the active link
+    const navLinks = document.querySelectorAll('.animated-nav-menu a');
+    navLinks.forEach(link => {
+        if (link.href === window.location.href) {
+            link.classList.add('active');
+        }
+    });
+
     images.forEach(img => {
         img.addEventListener('click', () => {
             const rect = img.getBoundingClientRect();
@@ -13,13 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             images.forEach(image => {
                 if (image !== img) {
-                    image.style.transition = 'transform 0.7s, opacity 0.7s'; // Slower animation
+                    image.style.transition = 'transform 0.7s, opacity 0.7s';
                     image.style.transform = 'translateX(-100%)';
                     image.style.opacity = '0';
                 }
             });
 
-            img.style.transition = 'transform 0.7s, left 0.7s, top 0.7s, z-index 0s'; // Slower animation
+            img.style.transition = 'transform 0.7s, left 0.7s, top 0.7s, z-index 0s';
             img.style.position = 'fixed';
             img.style.left = `${rect.left}px`;
             img.style.top = `${rect.top}px`;
@@ -29,13 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 overlay.style.display = 'block';
                 closeBtn.style.display = 'block';
-            }, 700); // Match the animation duration
+            }, 700);
         });
     });
 
     closeBtn.addEventListener('click', () => {
         images.forEach(image => {
-            image.style.transition = 'transform 0.7s, left 0.7s, top 0.7s, opacity 0.7s'; // Slower animation
+            image.style.transition = 'transform 0.7s, left 0.7s, top 0.7s, opacity 0.7s';
             image.style.position = '';
             image.style.transform = '';
             image.style.opacity = '';
@@ -48,7 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
         closeBtn.style.display = 'none';
     });
 
-    // Ensure the overlay also acts as a close button
     overlay.addEventListener('click', () => {
         closeBtn.click();
     });
