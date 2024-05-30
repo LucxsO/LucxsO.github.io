@@ -11,6 +11,8 @@ body {
     z-index: 9999;
     background-color: black;
     color: white;
+    display: flex;
+    flex-direction: column;
 }
 
 .header-content {
@@ -33,38 +35,34 @@ body {
 .animated-nav-menu {
     width: 100%;
     background: linear-gradient(to right, white, black);
-    padding: 10px 0;
 }
 
 .animated-nav-menu ul {
     list-style: none;
     display: flex;
-    justify-content: left;
+    justify-content: flex-start;
     padding: 0;
     margin: 0;
 }
 
 .animated-nav-menu li {
-    margin: 0 10px;
+    flex: 1;
+    border: 1px solid white;
 }
 
 .animated-nav-menu a {
     text-decoration: none;
-    color: black;
-    background-color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
+    color: white;
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+    background-color: black;
     transition: color 0.5s, background-color 0.5s;
 }
 
-.animated-nav-menu a:hover {
-    color: white;
-    background-color: black;
-}
-
-.animated-nav-menu a.active {
-    color: white;
-    background-color: black;
+.animated-nav-menu a:hover, .animated-nav-menu a.active {
+    color: black;
+    background-color: white;
 }
 
 .fading-gallery {
