@@ -33,6 +33,7 @@ body {
 }
 
 .animated-nav-menu {
+    position: relative;
     width: 100%;
     background: linear-gradient(to right, white, black);
 }
@@ -43,10 +44,12 @@ body {
     justify-content: flex-start;
     padding: 0;
     margin: 0;
+    position: relative;
 }
 
 .animated-nav-menu li {
     flex: 1;
+    position: relative;
     border: 1px solid white;
 }
 
@@ -58,9 +61,26 @@ body {
     padding: 10px 0;
     background-color: black;
     transition: color 0.5s, background-color 0.5s;
+    position: relative;
+    z-index: 1;
 }
 
-.animated-nav-menu a:hover, .animated-nav-menu a.active {
+.animated-nav-menu a.active {
+    color: black;
+    background-color: #666666; /* Medium dark gray */
+}
+
+.animated-nav-menu .slider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background-color: white;
+    transition: left 0.5s, width 0.5s;
+}
+
+.animated-nav-menu a:hover {
     color: black;
     background-color: #666666; /* Medium dark gray */
 }
