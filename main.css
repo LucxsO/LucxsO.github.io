@@ -1,36 +1,66 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  h1 {
-    color: hotpink;
-    font-size: 2em;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    border-bottom: 10px dotted purple;
-  }
-  
-  h2 {
-    font-style: italic;
-    font-size: 1.5em;
-  }
-  
-  .job-title {
-    color: #999999;
-    font-weight: bold;
-  }
-  
-  a:link, a:visited {
-    color: #fb6542;
-  }
-  
-  a:hover {
-    text-decoration: none;
-    color: green;
-  }
+  background-color: black;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
 
-  ul {
-    background-color: #eeeeee;
-    border-style: solid;
-    border-color: purple;
-    padding: 5px;
-  }
+.fixed-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.header-content {
+  text-align: left;
+  padding: 10px;
+}
+
+.header-content h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.header-content h2 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.animated-nav-menu {
+  width: 100%;
+  background: linear-gradient(to right, white, black);
+}
+
+.animated-nav-menu ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+}
+
+.animated-nav-menu li {
+  flex: 1;
+  border: 1px solid white;
+}
+
+.animated-nav-menu a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  text-align: center;
+  padding: 10px 0;
+  background-color: black;
+  transition: color 0.5s, background-color 0.5s;
+}
+
+.animated-nav-menu a:hover, .animated-nav-menu a.active {
+  color: black;
+  background-color: #666666; /* Medium dark gray */
+}
