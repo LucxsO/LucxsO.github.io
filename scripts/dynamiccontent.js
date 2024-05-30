@@ -1,2 +1,5 @@
-console.log("array containing 7 strings")
-let array = [];
+// scripts/dynamiccontent.js
+document.addEventListener('DOMContentLoaded', () => {
+    // Any dynamic content script can go here.
+    console.log('Dynamic content script loaded.');
+});
