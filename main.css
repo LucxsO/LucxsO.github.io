@@ -112,3 +112,90 @@ body {
 .image-container:hover .first-image {
   opacity: 0;
 }
+/* Music stuff */
+body {
+  background-color: black;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: black;
+  padding: 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+header h2 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #ccc;
+}
+
+nav {
+  margin: 20px 0;
+  background-color: #333;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #555;
+}
+
+main {
+  padding: 20px;
+}
+
+main p {
+  font-size: 1.2em;
+  margin-bottom: 40px;
+}
+
+.album-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.album {
+  border: 2px solid white;
+  padding: 10px;
+  transition: transform 0.3s;
+}
+
+.album:hover {
+  transform: scale(1.1);
+}
+
+.album img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
