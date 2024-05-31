@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const overlay = document.getElementById('overlay');
     const closeBtn = document.getElementById('close-btn');
 
-    // Highlight the active link
+    
     const navLinks = document.querySelectorAll('.animated-nav-menu a');
     navLinks.forEach(link => {
         if (link.href === window.location.href) {

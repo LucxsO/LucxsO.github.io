@@ -64,12 +64,12 @@ body {
 
 .animated-nav-menu a:hover, .animated-nav-menu a.active {
   color: black;
-  background-color: #666666; /* Medium dark gray */
+  background-color: #666666; 
 }
 
 .content {
   padding: 20px;
-  margin-top: 120px; /* To offset the fixed header */
+  margin-top: 120px; 
 }
 
 .image-grid {
@@ -117,7 +117,7 @@ body {
 
 .content {
   padding: 20px;
-  margin-top: 120px; /* To offset the fixed header */
+  margin-top: 120px; 
 }
 
 .image-grid {
