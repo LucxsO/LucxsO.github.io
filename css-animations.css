@@ -62,7 +62,7 @@ body {
 
 .animated-nav-menu a:hover, .animated-nav-menu a.active {
     color: black;
-    background-color: #666666; /* Medium dark gray */
+    background-color: #666666; 
 }
 
 .fading-gallery {
@@ -114,7 +114,7 @@ body {
     display: none;
     z-index: 9998;
 }
-
+ 
 .close-btn {
     position: fixed;
     top: 20px;
