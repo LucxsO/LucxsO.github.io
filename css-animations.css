@@ -114,7 +114,7 @@ body {
     display: none;
     z-index: 9998;
 }
-
+ 
 .close-btn {
     position: fixed;
     top: 20px;
