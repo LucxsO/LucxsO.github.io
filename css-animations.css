@@ -4,6 +4,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
+
 .fixed-header {
     position: fixed;
     top: 0;
@@ -15,10 +16,12 @@ body {
     flex-direction: column;
 }
 
+
 .header-content {
     text-align: left;
     padding: 10px;
 }
+
 
 .header-content h1 {
     margin: 0;
@@ -26,16 +29,19 @@ body {
     font-weight: normal;
 }
 
+
 .header-content h2 {
     margin: 0;
     font-size: 30px;
     font-weight: bold;
 }
 
+
 .animated-nav-menu {
     width: 100%;
     background: linear-gradient(to right, white, black);
 }
+
 
 .animated-nav-menu ul {
     list-style: none;
@@ -45,10 +51,12 @@ body {
     margin: 0;
 }
 
+
 .animated-nav-menu li {
     flex: 1;
     border: 1px solid white;
 }
+
 
 .animated-nav-menu a {
     text-decoration: none;
@@ -60,10 +68,12 @@ body {
     transition: color 0.5s, background-color 0.5s;
 }
 
+
 .animated-nav-menu a:hover, .animated-nav-menu a.active {
     color: black;
-    background-color: #666666; 
+    background-color: #666666;
 }
+
 
 .fading-gallery {
     display: flex;
@@ -71,6 +81,7 @@ body {
     justify-content: center;
     margin-top: 120px;
 }
+
 
 .fading-gallery img {
     width: 300px;
@@ -80,11 +91,13 @@ body {
     transition: transform 0.7s, opacity 0.7s, left 0.7s, top 0.7s, box-shadow 0.7s;
 }
 
+
 .fading-gallery img:hover {
     opacity: 1;
     transform: translateY(-10px) scale(1.1);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 
 .fading-gallery img:last-child {
     width: 350px;
@@ -92,17 +105,20 @@ body {
     margin-right: 15px;
 }
 
+
 .fading-gallery .rimac-img {
     width: 390px;
     height: 250px;
     margin-right: 15px;
 }
 
+
 .fading-gallery .HondaNSX-img {
     width: 390px;
     height: 250px;
     margin-right: 15px;
 }
+
 
 .overlay {
     position: fixed;

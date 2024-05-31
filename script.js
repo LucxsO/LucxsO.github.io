@@ -3,13 +3,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const overlay = document.getElementById('overlay');
     const closeBtn = document.getElementById('close-btn');
 
-    
+
+   
     const navLinks = document.querySelectorAll('.animated-nav-menu a');
     navLinks.forEach(link => {
         if (link.href === window.location.href) {
             link.classList.add('active');
         }
     });
+
 
     images.forEach(img => {
         img.addEventListener('click', () => {
@@ -19,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const offsetX = centerX - (rect.left + rect.width / 2);
             const offsetY = centerY - (rect.top + rect.height / 2);
 
+
             images.forEach(image => {
                 if (image !== img) {
                     image.style.transition = 'transform 0.7s, opacity 0.7s';
@@ -27,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
+
             img.style.transition = 'transform 0.7s, left 0.7s, top 0.7s, z-index 0s';
             img.style.position = 'fixed';
             img.style.left = `${rect.left}px`;
@@ -34,12 +38,14 @@ document.addEventListener('DOMContentLoaded', () => {
             img.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(3)`;
             img.style.zIndex = '10000';
 
+
             setTimeout(() => {
                 overlay.style.display = 'block';
                 closeBtn.style.display = 'block';
             }, 700);
         });
     });
+
 
     closeBtn.addEventListener('click', () => {
         images.forEach(image => {
@@ -52,9 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
             image.style.top = '';
         });
 
+
         overlay.style.display = 'none';
         closeBtn.style.display = 'none';
     });
+
 
     overlay.addEventListener('click', () => {
         closeBtn.click();
