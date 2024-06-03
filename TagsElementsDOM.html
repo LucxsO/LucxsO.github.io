@@ -37,6 +37,23 @@
         .album:hover .info {
             display: block;
         }
+
+        /* CSS for the text section */
+        .text-section {
+            font-size: 24px;
+            color: white;
+            margin: 20px;
+            padding: 20px;
+            background-color: black;
+            border: 1px solid white;
+            width: 40%;
+        }
+
+        .content-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
     </style>
 </head>
 <body>
@@ -57,19 +74,24 @@
         </div>
     </div>
     <div style="margin-top: 120px;">
-        <!-- Existing content -->
-        <div class="albums-section">
-            <div class="album">
-                <img src="TheMelodicBlueCover.jpeg" alt="The Melodic Blue">
-                <div class="info">The Melodic Blue by Baby Keem</div>
+        <!-- Content wrapper to hold text and albums -->
+        <div class="content-wrapper">
+            <div class="text-section">
+                The following are some of my favorite albums, to see more info of them you can hover over them.
             </div>
-            <div class="album">
-                <img src="DarkSideOfTheMoon.png" alt="Dark Side of the Moon">
-                <div class="info">Dark Side of the Moon by Pink Floyd</div>
-            </div>
-            <div class="album">
-                <img src="Smithereens.png" alt="Smithereens">
-                <div class="info">Smithereens by Joji</div>
+            <div class="albums-section">
+                <div class="album">
+                    <img src="TheMelodicBlueCover.jpeg" alt="The Melodic Blue">
+                    <div class="info">The Melodic Blue by Baby Keem</div>
+                </div>
+                <div class="album">
+                    <img src="DarkSideOfTheMoon.png" alt="Dark Side of the Moon">
+                    <div class="info">Dark Side of the Moon by Pink Floyd</div>
+                </div>
+                <div class="album">
+                    <img src="Smithereens.png" alt="Smithereens">
+                    <div class="info">Smithereens by Joji</div>
+                </div>
             </div>
         </div>
     </div>
