@@ -5,6 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Best Music</title>
     <link rel="stylesheet" href="main.css">
+    <style>
+        /* Additional CSS for the albums section */
+        .albums-section {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+            padding: 20px;
+            background-color: black;
+            color: white;
+            border: 1px solid white;
+        }
+
+        .album {
+            flex: 1;
+            text-align: center;
+            margin: 0 10px;
+        }
+
+        .album img {
+            width: 100%;
+            height: auto;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .album .info {
+            display: none;
+            color: white;
+        }
+
+        .album:hover .info {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <div class="fixed-header">
@@ -24,7 +57,21 @@
         </div>
     </div>
     <div style="margin-top: 120px;">
-        <!-- New content goes here -->
+        <!-- Existing content -->
+        <div class="albums-section">
+            <div class="album">
+                <img src="TheMelodicBlueCover.jpeg" alt="The Melodic Blue">
+                <div class="info">The Melodic Blue by Baby Keem</div>
+            </div>
+            <div class="album">
+                <img src="DarkSideOfTheMoon.png" alt="Dark Side of the Moon">
+                <div class="info">Dark Side of the Moon by Pink Floyd</div>
+            </div>
+            <div class="album">
+                <img src="Smithereens.png" alt="Smithereens">
+                <div class="info">Smithereens by Joji</div>
+            </div>
+        </div>
     </div>
     <script src="scripts/main.js"></script>
     <script src="scripts/dynamiccontent.js"></script>
