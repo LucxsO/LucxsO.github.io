@@ -4,17 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Best Music</title>
-    <link rel="stylesheet" href="music-style.css">
+    <link rel="stylesheet" href="main.css">
     <style>
-        /* Additional CSS for the albums section */
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: black;
+            border-bottom: 1px solid white;
+            z-index: 1000;
+        }
+
+        .header-content {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .header-content h1 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .header-content h2 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: normal;
+        }
+
+        .animated-nav-menu {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .animated-nav-menu nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .animated-nav-menu nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        .animated-nav-menu nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 5px 10px;
+        }
+
+        .animated-nav-menu nav ul li a.active {
+            background-color: grey;
+            border-radius: 5px;
+        }
+
+        .content-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 150px 20px 20px;
+        }
+
+        .text-section {
+            font-size: 24px;
+            color: white;
+            padding: 20px;
+            background-color: black;
+            border: 1px solid white;
+            width: 40%;
+        }
+
         .albums-section {
             display: flex;
             justify-content: space-between;
-            margin: 20px;
             padding: 20px;
             background-color: black;
-            color: white;
             border: 1px solid white;
+            width: 55%;
         }
 
         .album {
@@ -26,6 +102,7 @@
         .album img {
             width: 100%;
             height: auto;
+            border: 1px solid white;
             transition: opacity 0.5s ease-in-out;
         }
 
@@ -36,23 +113,6 @@
 
         .album:hover .info {
             display: block;
-        }
-
-        /* CSS for the text section */
-        .text-section {
-            font-size: 24px;
-            color: white;
-            margin: 20px;
-            padding: 20px;
-            background-color: black;
-            border: 1px solid white;
-            width: 40%;
-        }
-
-        .content-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
         }
     </style>
 </head>
@@ -73,25 +133,22 @@
             </nav>
         </div>
     </div>
-    <div style="margin-top: 120px;">
-        <!-- Content wrapper to hold text and albums -->
-        <div class="content-wrapper">
-            <div class="text-section">
-                The following are some of my favorite albums, to see more info of them you can hover over them.
+    <div class="content-wrapper">
+        <div class="text-section">
+            The following are some of my favorite albums, to see more info of them you can hover over them.
+        </div>
+        <div class="albums-section">
+            <div class="album">
+                <img src="TheMelodicBlueCover.jpeg" alt="The Melodic Blue">
+                <div class="info">The Melodic Blue by Baby Keem</div>
             </div>
-            <div class="albums-section">
-                <div class="album">
-                    <img src="TheMelodicBlueCover.jpeg" alt="The Melodic Blue">
-                    <div class="info">The Melodic Blue by Baby Keem</div>
-                </div>
-                <div class="album">
-                    <img src="DarkSideOfTheMoon.png" alt="Dark Side of the Moon">
-                    <div class="info">Dark Side of the Moon by Pink Floyd</div>
-                </div>
-                <div class="album">
-                    <img src="Smithereens.png" alt="Smithereens">
-                    <div class="info">Smithereens by Joji</div>
-                </div>
+            <div class="album">
+                <img src="DarkSideOfTheMoon.png" alt="Dark Side of the Moon">
+                <div class="info">Dark Side of the Moon by Pink Floyd</div>
+            </div>
+            <div class="album">
+                <img src="Smithereens.png" alt="Smithereens">
+                <div class="info">Smithereens by Joji</div>
             </div>
         </div>
     </div>
