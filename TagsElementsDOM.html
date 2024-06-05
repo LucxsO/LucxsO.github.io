@@ -77,6 +77,7 @@
             display: flex;
             align-items: center;
             margin-top: 10px;
+            z-index: 10;
         }
 
         .playback-controls img {
@@ -184,7 +185,9 @@
                 const audio = new Audio(audioSrc);
                 audio.loop = false;
 
-                button.addEventListener('click', () => {
+                button.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    
                     if (currentlyPlayingAudio && currentlyPlayingAudio !== audio) {
                         currentlyPlayingAudio.pause();
                         currentlyPlayingAudio.currentTime = 0;
