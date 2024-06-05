@@ -182,41 +182,54 @@
                 const audioSrc = button.getAttribute('data-audio');
                 const audio = new Audio(audioSrc);
                 audio.loop = false;
-                let playing = false;
-
-                button.addEventListener('click', () => {
-                    if (playing) {
-                        audio.pause();
-                        button.src = 'Playbutton.png'; // play icon
-                        playing = false;
-                    } else {
-                        playButtons.forEach(btn => {
-                            btn.src = 'Playbutton.png'; // play icon
-                            btn.audio && btn.audio.pause();
-                            btn.playing = false;
-                        });
-                        audio.currentTime = 0;
-                        audio.play();
-                        button.src = 'Pause.png'; // pause icon
-                        playing = true;
-                    }
-
-                    audio.addEventListener('ended', () => {
-                        button.src = 'Playbutton.png'; // play icon
-                        playing = false;
-                    });
-
+                audio.addEventListener('loadedmetadata', () => {
+                    audio.currentTime = 0;
+                    const duration = Math.min(audio.duration, 20);
                     const progress = button.nextElementSibling.querySelector('.progress');
                     const timeInfo = button.nextElementSibling.nextElementSibling;
+
+                    button.addEventListener('click', () => {
+                        if (audio.paused) {
+                            // Pause all other audios and reset their buttons
+                            playButtons.forEach(btn => {
+                                if (btn !== button) {
+                                    const otherAudio = btn.audio;
+                                    if (otherAudio) {
+                                        otherAudio.pause();
+                                        otherAudio.currentTime = 0;
+                                        btn.src = 'Playbutton.png';
+                                        btn.playing = false;
+                                    }
+                                }
+                            });
+                            // Play the selected audio
+                            audio.play();
+                            button.src = 'Pause.png';
+                        } else {
+                            // Pause the selected audio
+                            audio.pause();
+                            button.src = 'Playbutton.png';
+                        }
+                    });
+
                     audio.addEventListener('timeupdate', () => {
-                        const currentTime = Math.min(audio.currentTime, 20);
-                        const progressPercent = (currentTime / 20) * 100;
-                        progress.style.width = `${progressPercent}%`;
-                        timeInfo.textContent = `${currentTime.toFixed(2)} / 20.00`;
+                        const currentTime = audio.currentTime;
+                        if (currentTime >= 20) {
+                            audio.pause();
+                            audio.currentTime = 0;
+                            button.src = 'Playbutton.png';
+                        } else {
+                            const progressPercent = (currentTime / 20) * 100;
+                            progress.style.width = `${progressPercent}%`;
+                            timeInfo.textContent = `${currentTime.toFixed(2)} / 20.00`;
+                        }
+                    });
+
+                    audio.addEventListener('ended', () => {
+                        button.src = 'Playbutton.png';
                     });
 
                     button.audio = audio;
-                    button.playing = playing;
                 });
             });
         });
