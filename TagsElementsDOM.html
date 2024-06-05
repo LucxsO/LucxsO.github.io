@@ -39,6 +39,7 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             color: white;
@@ -71,6 +72,38 @@
             justify-content: space-between;
             align-items: flex-start;
         }
+
+        .playback-controls {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .playback-controls img {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            transition: opacity 0.5s;
+        }
+
+        .progress-bar {
+            width: 100px;
+            height: 10px;
+            background-color: white;
+            margin-left: 10px;
+            position: relative;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: green;
+            width: 0;
+        }
+
+        .time-info {
+            font-size: 10px;
+            margin-left: 10px;
+        }
     </style>
 </head>
 <body>
@@ -82,16 +115,15 @@
         <div class="animated-nav-menu">
             <nav>
                 <ul>
-                    <li><a href="https://lucxso.github.io/index.html" class="home-page">Home Page</a></li>
-                    <li><a href="https://lucxso.github.io/TagsElementsDOM.html" class="active">Music</a></li>
-                    <li><a href="https://lucxso.github.io/animations.html">Cars</a></li>
+                    <li><a href="index.html" class="home-page">Home Page</a></li>
+                    <li><a href="TagsElementsDOM.html" class="active">Music</a></li>
+                    <li><a href="animations.html">Cars</a></li>
                     <li><a href="places.html">Places</a></li>
                 </ul>
             </nav>
         </div>
     </div>
     <div style="margin-top: 120px;">
-        <!-- Content wrapper to hold text and albums -->
         <div class="content-wrapper">
             <div class="text-section">
                 The following are some of my favorite albums, to see more info of them you can hover over them.
@@ -99,20 +131,87 @@
             <div class="albums-section">
                 <div class="album">
                     <img src="TheMelodicBlueCover.jpeg" alt="The Melodic Blue">
-                    <div class="info">The Melodic Blue by Baby Keem</div>
+                    <div class="info">
+                        <div>The Melodic Blue by Baby Keem</div>
+                        <div class="playback-controls">
+                            <span>Preview:</span>
+                            <img src="file-oHwkipr6TI36BitfGNlI5kx0" class="play-button" alt="Play" data-audio="16.mp3">
+                            <div class="progress-bar">
+                                <div class="progress"></div>
+                            </div>
+                            <div class="time-info">0:00 / 0:20</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="album">
                     <img src="DarkSideOfTheMoon.png" alt="Dark Side of the Moon">
-                    <div class="info">Dark Side of the Moon by Pink Floyd</div>
+                    <div class="info">
+                        <div>Dark Side of the Moon by Pink Floyd</div>
+                        <div class="playback-controls">
+                            <span>Preview:</span>
+                            <img src="file-oHwkipr6TI36BitfGNlI5kx0" class="play-button" alt="Play" data-audio="Money.mp3">
+                            <div class="progress-bar">
+                                <div class="progress"></div>
+                            </div>
+                            <div class="time-info">0:00 / 0:20</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="album">
                     <img src="Smithereens.png" alt="Smithereens">
-                    <div class="info">Smithereens by Joji</div>
+                    <div class="info">
+                        <div>Smithereens by Joji</div>
+                        <div class="playback-controls">
+                            <span>Preview:</span>
+                            <img src="file-oHwkipr6TI36BitfGNlI5kx0" class="play-button" alt="Play" data-audio="Dissolve.mp3">
+                            <div class="progress-bar">
+                                <div class="progress"></div>
+                            </div>
+                            <div class="time-info">0:00 / 0:20</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="scripts/main.js"></script>
-    <script src="scripts/dynamiccontent.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const playButtons = document.querySelectorAll('.play-button');
+
+            playButtons.forEach(button => {
+                const audioSrc = button.getAttribute('data-audio');
+                const audio = new Audio(audioSrc);
+                audio.loop = false;
+                let playing = false;
+
+                button.addEventListener('click', () => {
+                    if (playing) {
+                        audio.pause();
+                        button.src = 'file-oHwkipr6TI36BitfGNlI5kx0'; // pause icon
+                        playing = false;
+                    } else {
+                        audio.currentTime = 0;
+                        audio.play();
+                        button.src = 'file-avzXq02sq7l7u68WQUIjdVDF'; // play icon
+                        playing = true;
+                    }
+
+                    audio.addEventListener('ended', () => {
+                        button.src = 'file-oHwkipr6TI36BitfGNlI5kx0'; // pause icon
+                        playing = false;
+                    });
+
+                    const progress = button.nextElementSibling.querySelector('.progress');
+                    const timeInfo = button.nextElementSibling.nextElementSibling;
+                    audio.addEventListener('timeupdate', () => {
+                        const currentTime = Math.min(audio.currentTime, 20);
+                        const progressPercent = (currentTime / 20) * 100;
+                        progress.style.width = `${progressPercent}%`;
+                        timeInfo.textContent = `${currentTime.toFixed(2)} / 20.00`;
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
