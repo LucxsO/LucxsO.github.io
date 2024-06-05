@@ -135,7 +135,7 @@
                         <div>The Melodic Blue by Baby Keem</div>
                         <div class="playback-controls">
                             <span>Preview:</span>
-                            <img src="Playbutton.png" class="play-button" alt="Play" data-audio="16.mp3">
+                            <img src="file-oHwkipr6TI36BitfGNlI5kx0" class="play-button" alt="Play" data-audio="16.mp3">
                             <div class="progress-bar">
                                 <div class="progress"></div>
                             </div>
@@ -149,7 +149,7 @@
                         <div>Dark Side of the Moon by Pink Floyd</div>
                         <div class="playback-controls">
                             <span>Preview:</span>
-                            <img src="Playbutton.png" class="play-button" alt="Play" data-audio="Money.mp3">
+                            <img src="file-oHwkipr6TI36BitfGNlI5kx0" class="play-button" alt="Play" data-audio="Money.mp3">
                             <div class="progress-bar">
                                 <div class="progress"></div>
                             </div>
@@ -163,7 +163,7 @@
                         <div>Smithereens by Joji</div>
                         <div class="playback-controls">
                             <span>Preview:</span>
-                            <img src="Playbutton.png" class="play-button" alt="Play" data-audio="Dissolve.mp3">
+                            <img src="file-oHwkipr6TI36BitfGNlI5kx0" class="play-button" alt="Play" data-audio="Dissolve.mp3">
                             <div class="progress-bar">
                                 <div class="progress"></div>
                             </div>
@@ -187,17 +187,22 @@
                 button.addEventListener('click', () => {
                     if (playing) {
                         audio.pause();
-                        button.src = 'file-oHwkipr6TI36BitfGNlI5kx0'; // pause icon
+                        button.src = 'file-oHwkipr6TI36BitfGNlI5kx0'; // play icon
                         playing = false;
                     } else {
+                        playButtons.forEach(btn => {
+                            btn.src = 'file-oHwkipr6TI36BitfGNlI5kx0'; // play icon
+                            btn.audio && btn.audio.pause();
+                            btn.playing = false;
+                        });
                         audio.currentTime = 0;
                         audio.play();
-                        button.src = 'file-avzXq02sq7l7u68WQUIjdVDF'; // play icon
+                        button.src = 'file-avzXq02sq7l7u68WQUIjdVDF'; // pause icon
                         playing = true;
                     }
 
                     audio.addEventListener('ended', () => {
-                        button.src = 'file-oHwkipr6TI36BitfGNlI5kx0'; // pause icon
+                        button.src = 'file-oHwkipr6TI36BitfGNlI5kx0'; // play icon
                         playing = false;
                     });
 
@@ -209,6 +214,9 @@
                         progress.style.width = `${progressPercent}%`;
                         timeInfo.textContent = `${currentTime.toFixed(2)} / 20.00`;
                     });
+
+                    button.audio = audio;
+                    button.playing = playing;
                 });
             });
         });
