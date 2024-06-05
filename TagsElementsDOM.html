@@ -86,25 +86,6 @@
             cursor: pointer;
             transition: opacity 0.5s;
         }
-
-        .progress-bar {
-            width: 100px;
-            height: 10px;
-            background-color: white;
-            margin-left: 10px;
-            position: relative;
-        }
-
-        .progress {
-            height: 100%;
-            background-color: green;
-            width: 0;
-        }
-
-        .time-info {
-            font-size: 10px;
-            margin-left: 10px;
-        }
     </style>
 </head>
 <body>
@@ -136,11 +117,8 @@
                         <div>The Melodic Blue by Baby Keem</div>
                         <div class="playback-controls">
                             <span>Preview:</span>
-                            <img src="Playbutton.png" class="play-button" alt="Play" data-audio="16.mp3">
-                            <div class="progress-bar">
-                                <div class="progress"></div>
-                            </div>
-                            <div class="time-info">0:00 / 0:20</div>
+                            <audio id="audio1" src="16.mp3"></audio>
+                            <img src="Playbutton.png" id="play1" alt="Play" onclick="playPauseAudio('audio1', 'play1')">
                         </div>
                     </div>
                 </div>
@@ -150,11 +128,8 @@
                         <div>Dark Side of the Moon by Pink Floyd</div>
                         <div class="playback-controls">
                             <span>Preview:</span>
-                            <img src="Playbutton.png" class="play-button" alt="Play" data-audio="Money.mp3">
-                            <div class="progress-bar">
-                                <div class="progress"></div>
-                            </div>
-                            <div class="time-info">0:00 / 0:20</div>
+                            <audio id="audio2" src="Money.mp3"></audio>
+                            <img src="Playbutton.png" id="play2" alt="Play" onclick="playPauseAudio('audio2', 'play2')">
                         </div>
                     </div>
                 </div>
@@ -164,11 +139,8 @@
                         <div>Smithereens by Joji</div>
                         <div class="playback-controls">
                             <span>Preview:</span>
-                            <img src="Playbutton.png" class="play-button" alt="Play" data-audio="Dissolve.mp3">
-                            <div class="progress-bar">
-                                <div class="progress"></div>
-                            </div>
-                            <div class="time-info">0:00 / 0:20</div>
+                            <audio id="audio3" src="Dissolve.mp3"></audio>
+                            <img src="Playbutton.png" id="play3" alt="Play" onclick="playPauseAudio('audio3', 'play3')">
                         </div>
                     </div>
                 </div>
@@ -176,63 +148,25 @@
         </div>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const playButtons = document.querySelectorAll('.play-button');
-            let currentlyPlayingAudio = null;
+        function playPauseAudio(audioId, buttonId) {
+            var audio = document.getElementById(audioId);
+            var button = document.getElementById(buttonId);
 
-            playButtons.forEach(button => {
-                const audioSrc = button.getAttribute('data-audio');
-                const audio = new Audio(audioSrc);
-                audio.loop = false;
+            if (audio.paused) {
+                audio.currentTime = 0;
+                audio.play();
+                button.src = 'Pause.png';
 
-                button.addEventListener('click', (event) => {
-                    event.stopPropagation();
-                    
-                    if (currentlyPlayingAudio && currentlyPlayingAudio !== audio) {
-                        currentlyPlayingAudio.pause();
-                        currentlyPlayingAudio.currentTime = 0;
-                        document.querySelector('.pause-button').src = 'Playbutton.png';
-                        document.querySelector('.pause-button').classList.remove('pause-button');
-                    }
-
-                    if (audio.paused) {
-                        audio.play();
-                        button.src = 'Pause.png';
-                        button.classList.add('pause-button');
-                        currentlyPlayingAudio = audio;
-                    } else {
-                        audio.pause();
-                        button.src = 'Playbutton.png';
-                        button.classList.remove('pause-button');
-                        currentlyPlayingAudio = null;
-                    }
-                });
-
-                audio.addEventListener('timeupdate', () => {
-                    const progress = button.nextElementSibling.querySelector('.progress');
-                    const timeInfo = button.nextElementSibling.nextElementSibling;
-                    const currentTime = audio.currentTime;
-                    
-                    if (currentTime >= 20) {
-                        audio.pause();
-                        audio.currentTime = 0;
-                        button.src = 'Playbutton.png';
-                        button.classList.remove('pause-button');
-                        currentlyPlayingAudio = null;
-                    } else {
-                        const progressPercent = (currentTime / 20) * 100;
-                        progress.style.width = `${progressPercent}%`;
-                        timeInfo.textContent = `${currentTime.toFixed(2)} / 20.00`;
-                    }
-                });
-
-                audio.addEventListener('ended', () => {
+                // Stop the audio after 20 seconds
+                setTimeout(function() {
+                    audio.pause();
                     button.src = 'Playbutton.png';
-                    button.classList.remove('pause-button');
-                    currentlyPlayingAudio = null;
-                });
-            });
-        });
+                }, 20000);
+            } else {
+                audio.pause();
+                button.src = 'Playbutton.png';
+            }
+        }
     </script>
 </body>
 </html>
