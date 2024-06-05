@@ -177,59 +177,56 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const playButtons = document.querySelectorAll('.play-button');
+            let currentlyPlayingAudio = null;
 
             playButtons.forEach(button => {
                 const audioSrc = button.getAttribute('data-audio');
                 const audio = new Audio(audioSrc);
                 audio.loop = false;
-                audio.addEventListener('loadedmetadata', () => {
-                    audio.currentTime = 0;
-                    const duration = Math.min(audio.duration, 20);
+
+                button.addEventListener('click', () => {
+                    if (currentlyPlayingAudio && currentlyPlayingAudio !== audio) {
+                        currentlyPlayingAudio.pause();
+                        currentlyPlayingAudio.currentTime = 0;
+                        document.querySelector('.pause-button').src = 'Playbutton.png';
+                        document.querySelector('.pause-button').classList.remove('pause-button');
+                    }
+
+                    if (audio.paused) {
+                        audio.play();
+                        button.src = 'Pause.png';
+                        button.classList.add('pause-button');
+                        currentlyPlayingAudio = audio;
+                    } else {
+                        audio.pause();
+                        button.src = 'Playbutton.png';
+                        button.classList.remove('pause-button');
+                        currentlyPlayingAudio = null;
+                    }
+                });
+
+                audio.addEventListener('timeupdate', () => {
                     const progress = button.nextElementSibling.querySelector('.progress');
                     const timeInfo = button.nextElementSibling.nextElementSibling;
-
-                    button.addEventListener('click', () => {
-                        if (audio.paused) {
-                            // Pause all other audios and reset their buttons
-                            playButtons.forEach(btn => {
-                                if (btn !== button) {
-                                    const otherAudio = btn.audio;
-                                    if (otherAudio) {
-                                        otherAudio.pause();
-                                        otherAudio.currentTime = 0;
-                                        btn.src = 'Playbutton.png';
-                                        btn.playing = false;
-                                    }
-                                }
-                            });
-                            // Play the selected audio
-                            audio.play();
-                            button.src = 'Pause.png';
-                        } else {
-                            // Pause the selected audio
-                            audio.pause();
-                            button.src = 'Playbutton.png';
-                        }
-                    });
-
-                    audio.addEventListener('timeupdate', () => {
-                        const currentTime = audio.currentTime;
-                        if (currentTime >= 20) {
-                            audio.pause();
-                            audio.currentTime = 0;
-                            button.src = 'Playbutton.png';
-                        } else {
-                            const progressPercent = (currentTime / 20) * 100;
-                            progress.style.width = `${progressPercent}%`;
-                            timeInfo.textContent = `${currentTime.toFixed(2)} / 20.00`;
-                        }
-                    });
-
-                    audio.addEventListener('ended', () => {
+                    const currentTime = audio.currentTime;
+                    
+                    if (currentTime >= 20) {
+                        audio.pause();
+                        audio.currentTime = 0;
                         button.src = 'Playbutton.png';
-                    });
+                        button.classList.remove('pause-button');
+                        currentlyPlayingAudio = null;
+                    } else {
+                        const progressPercent = (currentTime / 20) * 100;
+                        progress.style.width = `${progressPercent}%`;
+                        timeInfo.textContent = `${currentTime.toFixed(2)} / 20.00`;
+                    }
+                });
 
-                    button.audio = audio;
+                audio.addEventListener('ended', () => {
+                    button.src = 'Playbutton.png';
+                    button.classList.remove('pause-button');
+                    currentlyPlayingAudio = null;
                 });
             });
         });
