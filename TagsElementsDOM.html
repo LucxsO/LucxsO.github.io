@@ -191,8 +191,11 @@
                     if (currentlyPlayingAudio && currentlyPlayingAudio !== audio) {
                         currentlyPlayingAudio.pause();
                         currentlyPlayingAudio.currentTime = 0;
-                        document.querySelector('.pause-button').src = 'Playbutton.png';
-                        document.querySelector('.pause-button').classList.remove('pause-button');
+                        const prevButton = document.querySelector('.pause-button');
+                        if (prevButton) {
+                            prevButton.src = 'Playbutton.png';
+                            prevButton.classList.remove('pause-button');
+                        }
                     }
 
                     if (audio.paused) {
