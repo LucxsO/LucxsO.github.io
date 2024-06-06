@@ -14,6 +14,7 @@
             padding: 20px;
             background-color: black;
             color: white;
+            border: 1px solid white;
         }
 
         .album {
@@ -22,7 +23,6 @@
             text-align: center;
             margin: 0 10px;
             overflow: hidden;
-            border: 1px solid white; /* Ensuring image border remains */
         }
 
         .album img {
@@ -48,6 +48,11 @@
             pointer-events: none;
         }
 
+        .album .info audio {
+            width: 100%;
+            margin-top: 10px;
+        }
+
         .album:hover img {
             transform: scale(1.1);
         }
@@ -56,12 +61,12 @@
             opacity: 1;
         }
 
+        .album:hover .info audio {
+            display: block;
+        }
+
         .info audio {
-            width: 100%;
-            position: relative;
-            z-index: 9999;
-            background: transparent;
-            border: none;
+            display: none;
         }
 
         /* CSS for the text section */
@@ -71,6 +76,7 @@
             margin: 20px;
             padding: 20px;
             background-color: black;
+            border: 1px solid white;
             width: 40%;
         }
 
@@ -81,10 +87,14 @@
         }
 
         audio {
-            width: 100%;
-            z-index: 9999;
-            background: transparent;
+            background: none;
             border: none;
+            color: white;
+            font-size: inherit;
+        }
+
+        audio::-webkit-media-controls-panel {
+            background: none;
         }
     </style>
 </head>
