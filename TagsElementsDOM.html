@@ -17,6 +17,7 @@
             border: 1px solid white;
         }
 
+
         .album {
             position: relative;
             flex: 1;
@@ -25,11 +26,13 @@
             overflow: hidden;
         }
 
+
         .album img {
             width: 100%;
             height: auto;
             transition: transform 0.5s ease-in-out;
         }
+
 
         .album .info {
             position: absolute;
@@ -39,7 +42,6 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             color: white;
@@ -48,13 +50,16 @@
             pointer-events: none;
         }
 
+
         .album:hover img {
             transform: scale(1.1);
         }
 
+
         .album:hover .info {
             opacity: 1;
         }
+
 
         /* CSS for the text section */
         .text-section {
@@ -67,43 +72,11 @@
             width: 40%;
         }
 
+
         .content-wrapper {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-        }
-
-        .playback-controls {
-            display: flex;
-            align-items: center;
-            margin-top: 10px;
-            z-index: 10;
-        }
-
-        .playback-controls img {
-            width: 30px;
-            height: 30px;
-            cursor: pointer;
-            transition: opacity 0.5s;
-        }
-
-        .progress-bar {
-            width: 100px;
-            height: 10px;
-            background-color: white;
-            margin-left: 10px;
-            position: relative;
-        }
-
-        .progress {
-            height: 100%;
-            background-color: green;
-            width: 0;
-        }
-
-        .time-info {
-            font-size: 10px;
-            margin-left: 10px;
         }
     </style>
 </head>
@@ -116,15 +89,16 @@
         <div class="animated-nav-menu">
             <nav>
                 <ul>
-                    <li><a href="index.html" class="home-page">Home Page</a></li>
-                    <li><a href="TagsElementsDOM.html" class="active">Music</a></li>
-                    <li><a href="animations.html">Cars</a></li>
+                    <li><a href="https://lucxso.github.io/index.html" class="home-page">Home Page</a></li>
+                    <li><a href="https://lucxso.github.io/TagsElementsDOM.html" class="active">Music</a></li>
+                    <li><a href="https://lucxso.github.io/animations.html">Cars</a></li>
                     <li><a href="places.html">Places</a></li>
                 </ul>
             </nav>
         </div>
     </div>
     <div style="margin-top: 120px;">
+        <!-- Content wrapper to hold text and albums -->
         <div class="content-wrapper">
             <div class="text-section">
                 The following are some of my favorite albums, to see more info of them you can hover over them.
@@ -132,110 +106,20 @@
             <div class="albums-section">
                 <div class="album">
                     <img src="TheMelodicBlueCover.jpeg" alt="The Melodic Blue">
-                    <div class="info">
-                        <div>The Melodic Blue by Baby Keem</div>
-                        <div class="playback-controls">
-                            <span>Preview:</span>
-                            <img src="Playbutton.png" class="play-button" alt="Play" data-audio="16.mp3">
-                            <div class="progress-bar">
-                                <div class="progress"></div>
-                            </div>
-                            <div class="time-info">0:00 / 0:20</div>
-                        </div>
-                    </div>
+                    <div class="info">The Melodic Blue by Baby Keem</div>
                 </div>
                 <div class="album">
                     <img src="DarkSideOfTheMoon.png" alt="Dark Side of the Moon">
-                    <div class="info">
-                        <div>Dark Side of the Moon by Pink Floyd</div>
-                        <div class="playback-controls">
-                            <span>Preview:</span>
-                            <img src="Playbutton.png" class="play-button" alt="Play" data-audio="Money.mp3">
-                            <div class="progress-bar">
-                                <div class="progress"></div>
-                            </div>
-                            <div class="time-info">0:00 / 0:20</div>
-                        </div>
-                    </div>
+                    <div class="info">Dark Side of the Moon by Pink Floyd</div>
                 </div>
                 <div class="album">
                     <img src="Smithereens.png" alt="Smithereens">
-                    <div class="info">
-                        <div>Smithereens by Joji</div>
-                        <div class="playback-controls">
-                            <span>Preview:</span>
-                            <img src="Playbutton.png" class="play-button" alt="Play" data-audio="Dissolve.mp3">
-                            <div class="progress-bar">
-                                <div class="progress"></div>
-                            </div>
-                            <div class="time-info">0:00 / 0:20</div>
-                        </div>
-                    </div>
+                    <div class="info">Smithereens by Joji</div>
                 </div>
             </div>
         </div>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const playButtons = document.querySelectorAll('.play-button');
-            let currentlyPlayingAudio = null;
-
-            playButtons.forEach(button => {
-                const audioSrc = button.getAttribute('data-audio');
-                const audio = new Audio(audioSrc);
-                audio.loop = false;
-
-                button.addEventListener('click', (event) => {
-                    event.stopPropagation();
-                    
-                    if (currentlyPlayingAudio && currentlyPlayingAudio !== audio) {
-                        currentlyPlayingAudio.pause();
-                        currentlyPlayingAudio.currentTime = 0;
-                        const prevButton = document.querySelector('.pause-button');
-                        if (prevButton) {
-                            prevButton.src = 'Playbutton.png';
-                            prevButton.classList.remove('pause-button');
-                        }
-                    }
-
-                    if (audio.paused) {
-                        audio.play();
-                        button.src = 'Pause.png';
-                        button.classList.add('pause-button');
-                        currentlyPlayingAudio = audio;
-                    } else {
-                        audio.pause();
-                        button.src = 'Playbutton.png';
-                        button.classList.remove('pause-button');
-                        currentlyPlayingAudio = null;
-                    }
-                });
-
-                audio.addEventListener('timeupdate', () => {
-                    const progress = button.nextElementSibling.querySelector('.progress');
-                    const timeInfo = button.nextElementSibling.nextElementSibling;
-                    const currentTime = audio.currentTime;
-                    
-                    if (currentTime >= 20) {
-                        audio.pause();
-                        audio.currentTime = 0;
-                        button.src = 'Playbutton.png';
-                        button.classList.remove('pause-button');
-                        currentlyPlayingAudio = null;
-                    } else {
-                        const progressPercent = (currentTime / 20) * 100;
-                        progress.style.width = `${progressPercent}%`;
-                        timeInfo.textContent = `${currentTime.toFixed(2)} / 20.00`;
-                    }
-                });
-
-                audio.addEventListener('ended', () => {
-                    button.src = 'Playbutton.png';
-                    button.classList.remove('pause-button');
-                    currentlyPlayingAudio = null;
-                });
-            });
-        });
-    </script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/dynamiccontent.js"></script>
 </body>
 </html>
