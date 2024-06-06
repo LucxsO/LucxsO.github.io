@@ -39,6 +39,7 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             color: white;
@@ -47,12 +48,25 @@
             pointer-events: none;
         }
 
+        .album .info audio {
+            width: 100%;
+            margin-top: 10px;
+        }
+
         .album:hover img {
             transform: scale(1.1);
         }
 
         .album:hover .info {
             opacity: 1;
+        }
+
+        .album:hover .info audio {
+            display: block;
+        }
+
+        .info audio {
+            display: none;
         }
 
         /* CSS for the text section */
@@ -72,15 +86,15 @@
             align-items: flex-start;
         }
 
-        /* Additional CSS for audio snippet */
-        .audio-snippet {
-            width: 100%;
-            margin-top: 10px;
+        audio {
+            background: none;
+            border: none;
+            color: white;
+            font-size: inherit;
         }
 
-        .audio-snippet audio {
-            width: 100%;
-            background-color: transparent; /* Remove the background */
+        audio::-webkit-media-controls-panel {
+            background: none;
         }
     </style>
 </head>
@@ -111,39 +125,53 @@
                 <div class="album">
                     <img src="TheMelodicBlueCover.jpeg" alt="The Melodic Blue">
                     <div class="info">
-                        The Melodic Blue by Baby Keem<br>
-                        <div class="audio-snippet">
-                            <audio controls>
-                                <source src="16.mp3" type="audio/mpeg">
-                            </audio>
-                        </div>
+                        The Melodic Blue by Baby Keem
+                        <audio controls>
+                            <source src="16.mp3#t=0,20" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
                     </div>
                 </div>
                 <div class="album">
                     <img src="DarkSideOfTheMoon.png" alt="Dark Side of the Moon">
                     <div class="info">
-                        Dark Side of the Moon by Pink Floyd<br>
-                        <div class="audio-snippet">
-                            <audio controls>
-                                <source src="Money.mp3" type="audio/mpeg">
-                            </audio>
-                        </div>
+                        Dark Side of the Moon by Pink Floyd
+                        <audio controls>
+                            <source src="Money.mp3#t=0,20" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
                     </div>
                 </div>
                 <div class="album">
                     <img src="Smithereens.png" alt="Smithereens">
                     <div class="info">
-                        Smithereens by Joji<br>
-                        <div class="audio-snippet">
-                            <audio controls>
-                                <source src="Dissolve.mp3" type="audio/mpeg">
-                            </audio>
-                        </div>
+                        Smithereens by Joji
+                        <audio controls>
+                            <source src="Dissolve.mp3#t=0,20" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const albums = document.querySelectorAll('.album');
+
+            albums.forEach(album => {
+                const audio = album.querySelector('audio');
+                album.addEventListener('mouseenter', () => {
+                    audio.play();
+                });
+
+                album.addEventListener('mouseleave', () => {
+                    audio.pause();
+                    audio.currentTime = 0;
+                });
+            });
+        });
+    </script>
     <script src="scripts/main.js"></script>
     <script src="scripts/dynamiccontent.js"></script>
 </body>
