@@ -1,3 +1,4 @@
+/* Existing CSS */
 body {
   background-color: black;
   margin: 0;
@@ -90,9 +91,10 @@ body {
 }
 
 .image-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
+  display: flex;
+  flex: 3;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .image-container {
@@ -100,8 +102,10 @@ body {
   width: 200px;
   height: 300px;
   overflow: hidden;
+  margin: 10px;
   background-color: white;
   border: 3px solid white;
+  padding: 5px;
   box-sizing: border-box;
 }
 
@@ -130,4 +134,40 @@ body {
 
 .image-container:hover .first-image {
   opacity: 0;
+}
+
+/* New CSS for duplicating the white hollow square */
+.hollow-square {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  border: 2px solid white;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+}
+
+.image-container .hollow-square {
+  top: 10px;
+  left: 10px;
+}
+
+.image-container::before, .image-container::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border: 2px solid white;
+  box-sizing: border-box;
+}
+
+.image-container::before {
+  top: 10px;
+  left: calc(100% + 20px); /* Adjust as needed */
+}
+
+.image-container::after {
+  top: 10px;
+  right: calc(100% + 20px); /* Adjust as needed */
 }
