@@ -6,20 +6,37 @@
     <title>Best Music</title>
     <link rel="stylesheet" href="main.css">
     <style>
-        .albums-section {
+        .content-wrapper {
             display: flex;
             justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 120px;
+        }
+
+        .text-section {
+            font-size: 24px;
+            color: white;
+            margin: 20px;
+            padding: 20px;
+            background-color: black;
+            width: 25%;
+        }
+
+        .albums-section {
+            display: flex;
+            flex-wrap: wrap;
             margin: 20px;
             padding: 20px;
             background-color: black;
             color: white;
+            width: 75%;
         }
 
         .album {
             position: relative;
-            flex: 1;
-            text-align: center;
+            width: 30%;
             margin: 10px;
+            text-align: center;
             overflow: hidden;
         }
 
@@ -63,58 +80,13 @@
         }
 
         .album audio {
-            display: none; /* Initially hide the audio player */
-        }
-
-        .album:hover audio {
-            display: block; /* Show the audio player on hover */
-            margin-top: 10px; /* Ensure there's some space between the image and audio player */
-        }
-
-        .text-section {
-            font-size: 96px; /* 4 times bigger than the original 24px */
-            font-weight: bold;
-            color: white;
-            padding: 20px;
-            background-color: black;
-            border: 2px solid white;
-            flex: 1;
-            height: auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .content-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        audio {
+            display: block;
+            margin-top: 10px;
             width: 100%;
-            z-index: 9999;
-            background: transparent;
-            border: none;
         }
 
-        .album img {
-            width: 100px; /* Adjust the size of the album covers */
-            height: auto;
-        }
-
-        .album {
-            flex: 0 0 20%; /* Four equal columns */
-        }
-
-        .text-section {
-            flex: 0 0 20%; /* Same size as album covers */
-            height: 100px; /* Ensure the text section is the same height as the album covers */
-        }
-
-        .albums-section {
-            gap: 20px; /* Add margin between album covers */
+        .album:nth-child(1) {
+            width: 33.33%;
         }
     </style>
 </head>
@@ -135,43 +107,40 @@
             </nav>
         </div>
     </div>
-    <div style="margin-top: 120px;">
-        <!-- Content wrapper to hold text and albums -->
-        <div class="content-wrapper">
-            <div class="text-section">
-                The following are some of my favorite albums, to see more info of them you can hover over them.
+    <div class="content-wrapper">
+        <div class="text-section">
+            The following are some of my favorite albums, to see more info of them you can hover over them.
+        </div>
+        <div class="albums-section">
+            <div class="album">
+                <img src="TheMelodicBlueCover.jpeg" alt="The Melodic Blue">
+                <div class="info">
+                    The Melodic Blue by Baby Keem
+                </div>
+                <audio controls>
+                    <source src="16.mp3#t=0,20" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
             </div>
-            <div class="albums-section">
-                <div class="album">
-                    <img src="TheMelodicBlueCover.jpeg" alt="The Melodic Blue">
-                    <div class="info">
-                        The Melodic Blue by Baby Keem
-                    </div>
-                    <audio controls>
-                        <source src="16.mp3#t=0,20" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
+            <div class="album">
+                <img src="DarkSideOfTheMoon.png" alt="Dark Side of the Moon">
+                <div class="info">
+                    Dark Side of the Moon by Pink Floyd
                 </div>
-                <div class="album">
-                    <img src="DarkSideOfTheMoon.png" alt="Dark Side of the Moon">
-                    <div class="info">
-                        Dark Side of the Moon by Pink Floyd
-                    </div>
-                    <audio controls>
-                        <source src="Money.mp3#t=0,20" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
+                <audio controls>
+                    <source src="Money.mp3#t=0,20" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <div class="album">
+                <img src="Smithereens.png" alt="Smithereens">
+                <div class="info">
+                    Smithereens by Joji
                 </div>
-                <div class="album">
-                    <img src="Smithereens.png" alt="Smithereens">
-                    <div class="info">
-                        Smithereens by Joji
-                    </div>
-                    <audio controls>
-                        <source src="Dissolve.mp3#t=0,20" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
+                <audio controls>
+                    <source src="Dissolve.mp3#t=0,20" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
             </div>
         </div>
     </div>
