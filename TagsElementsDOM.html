@@ -14,7 +14,6 @@
             padding: 20px;
             background-color: black;
             color: white;
-            border: 1px solid white;
         }
 
         .album {
@@ -48,11 +47,6 @@
             pointer-events: none;
         }
 
-        .album .info audio {
-            width: 100%;
-            margin-top: 10px;
-        }
-
         .album:hover img {
             transform: scale(1.1);
         }
@@ -61,12 +55,21 @@
             opacity: 1;
         }
 
-        .album:hover .info audio {
-            display: block;
+        .info audio {
+            width: 100%;
+            position: relative;
+            z-index: 9999;
+            background: transparent;
+            border: none;
         }
 
-        .info audio {
-            display: none;
+        .album audio {
+            display: none; /* Initially hide the audio player */
+        }
+
+        .album:hover audio {
+            display: block; /* Show the audio player on hover */
+            margin-top: 10px; /* Ensure there's some space between the image and audio player */
         }
 
         /* CSS for the text section */
@@ -76,7 +79,6 @@
             margin: 20px;
             padding: 20px;
             background-color: black;
-            border: 1px solid white;
             width: 40%;
         }
 
@@ -87,14 +89,10 @@
         }
 
         audio {
-            background: none;
+            width: 100%;
+            z-index: 9999;
+            background: transparent;
             border: none;
-            color: white;
-            font-size: inherit;
-        }
-
-        audio::-webkit-media-controls-panel {
-            background: none;
         }
     </style>
 </head>
@@ -126,31 +124,31 @@
                     <img src="TheMelodicBlueCover.jpeg" alt="The Melodic Blue">
                     <div class="info">
                         The Melodic Blue by Baby Keem
-                        <audio controls>
-                            <source src="16.mp3#t=0,20" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
                     </div>
+                    <audio controls>
+                        <source src="16.mp3#t=0,20" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
                 </div>
                 <div class="album">
                     <img src="DarkSideOfTheMoon.png" alt="Dark Side of the Moon">
                     <div class="info">
                         Dark Side of the Moon by Pink Floyd
-                        <audio controls>
-                            <source src="Money.mp3#t=0,20" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
                     </div>
+                    <audio controls>
+                        <source src="Money.mp3#t=0,20" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
                 </div>
                 <div class="album">
                     <img src="Smithereens.png" alt="Smithereens">
                     <div class="info">
                         Smithereens by Joji
-                        <audio controls>
-                            <source src="Dissolve.mp3#t=0,20" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
                     </div>
+                    <audio controls>
+                        <source src="Dissolve.mp3#t=0,20" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
                 </div>
             </div>
         </div>
