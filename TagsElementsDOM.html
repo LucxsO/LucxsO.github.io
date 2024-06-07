@@ -6,37 +6,34 @@
     <title>Best Music</title>
     <link rel="stylesheet" href="main.css">
     <style>
+        /* Additional CSS for the albums section */
         .content-wrapper {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            margin-top: 120px;
-        }
-
-        .text-section {
-            font-size: 24px;
-            color: white;
             margin: 20px;
             padding: 20px;
             background-color: black;
-            width: 25%;
+            color: white;
+        }
+
+        .text-section {
+            flex: 1;
+            text-align: left;
+            padding: 10px;
+            background-color: black;
         }
 
         .albums-section {
             display: flex;
-            flex-wrap: wrap;
-            margin: 20px;
-            padding: 20px;
-            background-color: black;
-            color: white;
-            width: 75%;
+            flex: 3;
+            justify-content: space-between;
         }
 
         .album {
             position: relative;
-            width: 30%;
-            margin: 10px;
+            flex: 1;
             text-align: center;
+            margin: 0 10px;
             overflow: hidden;
         }
 
@@ -81,12 +78,14 @@
 
         .album audio {
             display: block;
-            margin-top: 10px;
-            width: 100%;
+            margin-top: 10px; /* Ensure there's some space between the image and audio player */
         }
 
-        .album:nth-child(1) {
-            width: 33.33%;
+        audio {
+            width: 100%;
+            z-index: 9999;
+            background: transparent;
+            border: none;
         }
     </style>
 </head>
@@ -99,48 +98,51 @@
         <div class="animated-nav-menu">
             <nav>
                 <ul>
-                    <li><a href="https://lucxso.github.io/index.html" class="home-page">Home Page</a></li>
-                    <li><a href="https://lucxso.github.io/TagsElementsDOM.html" class="active">Music</a></li>
-                    <li><a href="https://lucxso.github.io/animations.html">Cars</a></li>
+                    <li><a href="index.html" class="home-page">Home Page</a></li>
+                    <li><a href="TagsElementsDOM.html" class="active">Music</a></li>
+                    <li><a href="animations.html">Cars</a></li>
                     <li><a href="places.html">Places</a></li>
                 </ul>
             </nav>
         </div>
     </div>
-    <div class="content-wrapper">
-        <div class="text-section">
-            The following are some of my favorite albums, to see more info of them you can hover over them.
-        </div>
-        <div class="albums-section">
-            <div class="album">
-                <img src="TheMelodicBlueCover.jpeg" alt="The Melodic Blue">
-                <div class="info">
-                    The Melodic Blue by Baby Keem
-                </div>
-                <audio controls>
-                    <source src="16.mp3#t=0,20" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
+    <div style="margin-top: 120px;">
+        <!-- Content wrapper to hold text and albums -->
+        <div class="content-wrapper">
+            <div class="text-section">
+                The following are some of my favorite albums, to see more info of them you can hover over them.
             </div>
-            <div class="album">
-                <img src="DarkSideOfTheMoon.png" alt="Dark Side of the Moon">
-                <div class="info">
-                    Dark Side of the Moon by Pink Floyd
+            <div class="albums-section">
+                <div class="album">
+                    <img src="TheMelodicBlueCover.jpeg" alt="The Melodic Blue">
+                    <div class="info">
+                        The Melodic Blue by Baby Keem
+                    </div>
+                    <audio controls>
+                        <source src="16.mp3#t=0,20" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
                 </div>
-                <audio controls>
-                    <source src="Money.mp3#t=0,20" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-            </div>
-            <div class="album">
-                <img src="Smithereens.png" alt="Smithereens">
-                <div class="info">
-                    Smithereens by Joji
+                <div class="album">
+                    <img src="DarkSideOfTheMoon.png" alt="Dark Side of the Moon">
+                    <div class="info">
+                        Dark Side of the Moon by Pink Floyd
+                    </div>
+                    <audio controls>
+                        <source src="Money.mp3#t=0,20" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
                 </div>
-                <audio controls>
-                    <source src="Dissolve.mp3#t=0,20" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
+                <div class="album">
+                    <img src="Smithereens.png" alt="Smithereens">
+                    <div class="info">
+                        Smithereens by Joji
+                    </div>
+                    <audio controls>
+                        <source src="Dissolve.mp3#t=0,20" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
             </div>
         </div>
     </div>
