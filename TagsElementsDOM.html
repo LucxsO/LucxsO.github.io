@@ -7,13 +7,26 @@
     <link rel="stylesheet" href="main.css">
     <style>
         /* Additional CSS for the albums section */
-        .albums-section {
+        .content-wrapper {
             display: flex;
             justify-content: space-between;
             margin: 20px;
             padding: 20px;
             background-color: black;
             color: white;
+        }
+
+        .text-section {
+            flex: 1;
+            text-align: left;
+            padding: 10px;
+            background-color: black;
+        }
+
+        .albums-section {
+            display: flex;
+            flex: 3;
+            justify-content: space-between;
         }
 
         .album {
@@ -64,28 +77,8 @@
         }
 
         .album audio {
-            display: none; /* Initially hide the audio player */
-        }
-
-        .album:hover audio {
-            display: block; /* Show the audio player on hover */
+            display: block;
             margin-top: 10px; /* Ensure there's some space between the image and audio player */
-        }
-
-        /* CSS for the text section */
-        .text-section {
-            font-size: 24px;
-            color: white;
-            margin: 20px;
-            padding: 20px;
-            background-color: black;
-            width: 40%;
-        }
-
-        .content-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
         }
 
         audio {
@@ -105,9 +98,9 @@
         <div class="animated-nav-menu">
             <nav>
                 <ul>
-                    <li><a href="https://lucxso.github.io/index.html" class="home-page">Home Page</a></li>
-                    <li><a href="https://lucxso.github.io/TagsElementsDOM.html" class="active">Music</a></li>
-                    <li><a href="https://lucxso.github.io/animations.html">Cars</a></li>
+                    <li><a href="index.html" class="home-page">Home Page</a></li>
+                    <li><a href="TagsElementsDOM.html" class="active">Music</a></li>
+                    <li><a href="animations.html">Cars</a></li>
                     <li><a href="places.html">Places</a></li>
                 </ul>
             </nav>
