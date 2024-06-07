@@ -6,8 +6,7 @@
     <title>Best Music</title>
     <link rel="stylesheet" href="main.css">
     <style>
-        /* Additional CSS for the albums section */
-        .content-wrapper {
+        .albums-section {
             display: flex;
             justify-content: space-between;
             margin: 20px;
@@ -16,24 +15,11 @@
             color: white;
         }
 
-        .text-section {
-            flex: 1;
-            text-align: left;
-            padding: 10px;
-            background-color: black;
-        }
-
-        .albums-section {
-            display: flex;
-            flex: 3;
-            justify-content: space-between;
-        }
-
         .album {
             position: relative;
             flex: 1;
             text-align: center;
-            margin: 0 10px;
+            margin: 10px;
             overflow: hidden;
         }
 
@@ -77,8 +63,29 @@
         }
 
         .album audio {
-            display: block;
+            display: none; /* Initially hide the audio player */
+        }
+
+        .album:hover audio {
+            display: block; /* Show the audio player on hover */
             margin-top: 10px; /* Ensure there's some space between the image and audio player */
+        }
+
+        .text-section {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            padding: 20px;
+            background-color: black;
+            border: 2px solid white;
+            flex: 1;
+            height: auto;
+        }
+
+        .content-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
         }
 
         audio {
@@ -86,6 +93,24 @@
             z-index: 9999;
             background: transparent;
             border: none;
+        }
+
+        .album img {
+            width: auto;
+            height: 100px; /* Adjust the height to be 4x the size of the text */
+        }
+
+        .album {
+            flex: 0 0 20%; /* Four equal columns */
+        }
+
+        .text-section {
+            flex: 0 0 20%; /* Same size as album covers */
+            height: 100px; /* Ensure the text section is the same height as the album covers */
+        }
+
+        .albums-section {
+            gap: 20px; /* Add margin between album covers */
         }
     </style>
 </head>
@@ -98,9 +123,9 @@
         <div class="animated-nav-menu">
             <nav>
                 <ul>
-                    <li><a href="index.html" class="home-page">Home Page</a></li>
-                    <li><a href="TagsElementsDOM.html" class="active">Music</a></li>
-                    <li><a href="animations.html">Cars</a></li>
+                    <li><a href="https://lucxso.github.io/index.html" class="home-page">Home Page</a></li>
+                    <li><a href="https://lucxso.github.io/TagsElementsDOM.html" class="active">Music</a></li>
+                    <li><a href="https://lucxso.github.io/animations.html">Cars</a></li>
                     <li><a href="places.html">Places</a></li>
                 </ul>
             </nav>
