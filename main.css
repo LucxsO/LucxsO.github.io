@@ -80,14 +80,13 @@ body {
   text-align: left;
   padding: 15px;
   box-sizing: border-box;
-  border: 10px solid white; /* Adjusted to match desired border size */
+  border: 3px solid white;
   margin-right: 10px;
 }
 
 .text-section p {
   font-size: 100%;
   margin: 0;
-  font-weight: bold; /* Made text bold */
 }
 
 .image-grid {
@@ -103,8 +102,9 @@ body {
   height: 300px;
   overflow: hidden;
   margin: 10px;
-  background-color: black; /* Changed background to black */
-  border: 10px solid white; /* Adjusted to match border size */
+  background-color: white;
+  border: 3px solid white;
+  padding: 5px;
   box-sizing: border-box;
 }
 
