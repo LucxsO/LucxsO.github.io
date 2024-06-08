@@ -171,3 +171,18 @@ body {
   top: 10px;
   right: calc(100% + 20px); /* Adjust as needed */
 }
+
+/* CSS for the welcome message */
+.welcome-message {
+  margin: 20px;
+  padding: 20px;
+  background-color: black;
+  color: white;
+  border: 3px solid white;
+}
+
+.welcome-message p {
+  font-size: 220%;
+  font-weight: bold;
+  margin: 0;
+}
