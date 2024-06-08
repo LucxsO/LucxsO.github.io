@@ -164,12 +164,12 @@ body {
 
 .image-container::before {
   top: 10px;
-  left: calc(100% + 20px); /* Adjust as needed */
+  left: calc(100% + 20px); 
 }
 
 .image-container::after {
   top: 10px;
-  right: calc(100% + 20px); /* Adjust as needed */
+  right: calc(100% + 20px); 
 }
 
 /* CSS for the welcome message */
